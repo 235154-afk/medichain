@@ -1,35 +1,398 @@
 // lib/config/contract_config.dart
 class ContractConfig {
   // ── REPLACE WITH YOUR DEPLOYED ADDRESS ──
-  static const String contractAddress = '0xYourDeployedAddressHere';
-  static const String rpcUrl = 'https://sepolia.infura.io/v3/YOUR_INFURA_KEY';
+  static const String contractAddress =
+      '0x2370C36F9839f237c83b8fA6dc816F80ff1fFbf1';
+  static const String rpcUrl = 'https://rpc.sepolia.org';
   static const String chainName = 'Sepolia Testnet';
   static const int chainId = 11155111;
   static const String explorerBase = 'https://sepolia.etherscan.io/tx/';
 
   // ── ABI ──
   static const List<Map<String, dynamic>> abi = [
-    {"inputs":[],"stateMutability":"nonpayable","type":"constructor"},
-    {"inputs":[{"internalType":"address","name":"a","type":"address"}],"name":"addAdmin","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"string","name":"batchNumber","type":"string"}],"name":"getBatchByNumber","outputs":[{"components":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"batchNumber","type":"string"},{"internalType":"string","name":"manufacturer","type":"string"},{"internalType":"string","name":"composition","type":"string"},{"internalType":"uint256","name":"mfgDate","type":"uint256"},{"internalType":"uint256","name":"expDate","type":"uint256"},{"internalType":"uint256","name":"quantity","type":"uint256"},{"internalType":"int256","name":"minTemp","type":"int256"},{"internalType":"int256","name":"maxTemp","type":"int256"},{"internalType":"string","name":"ipfsHash","type":"string"},{"internalType":"address","name":"registeredBy","type":"address"},{"internalType":"uint8","name":"status","type":"uint8"},{"internalType":"uint256","name":"registeredAt","type":"uint256"},{"internalType":"bool","name":"exists","type":"bool"}],"internalType":"struct MediChain.MedicineBatch","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"id","type":"uint256"}],"name":"getBatch","outputs":[{"components":[{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"batchNumber","type":"string"},{"internalType":"string","name":"manufacturer","type":"string"},{"internalType":"string","name":"composition","type":"string"},{"internalType":"uint256","name":"mfgDate","type":"uint256"},{"internalType":"uint256","name":"expDate","type":"uint256"},{"internalType":"uint256","name":"quantity","type":"uint256"},{"internalType":"int256","name":"minTemp","type":"int256"},{"internalType":"int256","name":"maxTemp","type":"int256"},{"internalType":"string","name":"ipfsHash","type":"string"},{"internalType":"address","name":"registeredBy","type":"address"},{"internalType":"uint8","name":"status","type":"uint8"},{"internalType":"uint256","name":"registeredAt","type":"uint256"},{"internalType":"bool","name":"exists","type":"bool"}],"internalType":"struct MediChain.MedicineBatch","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},
-    {"inputs":[],"name":"getBatchCount","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"string","name":"batchNumber","type":"string"}],"name":"getBatchIdByNumber","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"batchId","type":"uint256"}],"name":"getTransferHistory","outputs":[{"components":[{"internalType":"uint256","name":"batchId","type":"uint256"},{"internalType":"address","name":"from","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint8","name":"toRole","type":"uint8"},{"internalType":"string","name":"location","type":"string"},{"internalType":"string","name":"notes","type":"string"},{"internalType":"uint256","name":"timestamp","type":"uint256"},{"internalType":"int256","name":"tempAtTransfer","type":"int256"}],"internalType":"struct MediChain.TransferEvent[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"batchId","type":"uint256"}],"name":"getTempLogs","outputs":[{"components":[{"internalType":"uint256","name":"batchId","type":"uint256"},{"internalType":"int256","name":"temperature","type":"int256"},{"internalType":"string","name":"location","type":"string"},{"internalType":"address","name":"loggedBy","type":"address"},{"internalType":"uint256","name":"timestamp","type":"uint256"},{"internalType":"uint8","name":"status","type":"uint8"}],"internalType":"struct MediChain.TempLog[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},
-    {"inputs":[],"name":"getAnalytics","outputs":[{"internalType":"uint256","name":"batches","type":"uint256"},{"internalType":"uint256","name":"transfers","type":"uint256"},{"internalType":"uint256","name":"recalls","type":"uint256"},{"internalType":"uint256","name":"breaches","type":"uint256"},{"internalType":"uint256","name":"actors","type":"uint256"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"address","name":"wallet","type":"address"}],"name":"getActor","outputs":[{"components":[{"internalType":"address","name":"wallet","type":"address"},{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"licenseNumber","type":"string"},{"internalType":"uint8","name":"role","type":"uint8"},{"internalType":"bool","name":"isVerified","type":"bool"},{"internalType":"bool","name":"exists","type":"bool"}],"internalType":"struct MediChain.ActorInfo","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"licenseNumber","type":"string"},{"internalType":"uint8","name":"role","type":"uint8"}],"name":"registerActor","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"components":[{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"batchNumber","type":"string"},{"internalType":"string","name":"manufacturer","type":"string"},{"internalType":"string","name":"composition","type":"string"},{"internalType":"uint256","name":"mfgDate","type":"uint256"},{"internalType":"uint256","name":"expDate","type":"uint256"},{"internalType":"uint256","name":"quantity","type":"uint256"},{"internalType":"int256","name":"minTemp","type":"int256"},{"internalType":"int256","name":"maxTemp","type":"int256"},{"internalType":"string","name":"ipfsHash","type":"string"}],"internalType":"struct MediChain.BatchInput","name":"inp","type":"tuple"}],"name":"registerBatch","outputs":[{"internalType":"uint256","name":"id","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"batchId","type":"uint256"},{"internalType":"address","name":"toAddress","type":"address"},{"internalType":"string","name":"location","type":"string"},{"internalType":"string","name":"notes","type":"string"},{"internalType":"int256","name":"currentTemp","type":"int256"}],"name":"transferBatch","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"batchId","type":"uint256"},{"internalType":"int256","name":"temperature","type":"int256"},{"internalType":"string","name":"location","type":"string"}],"name":"logTemperature","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"uint256","name":"batchId","type":"uint256"},{"internalType":"string","name":"reason","type":"string"}],"name":"recallBatch","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"address","name":"wallet","type":"address"},{"internalType":"bool","name":"verified","type":"bool"}],"name":"verifyActor","outputs":[],"stateMutability":"nonpayable","type":"function"},
-    {"inputs":[{"internalType":"address","name":"a","type":"address"}],"name":"isAdmin","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
-    {"inputs":[{"internalType":"address","name":"wallet","type":"address"}],"name":"isActorVerified","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},
-    {"inputs":[],"name":"totalBatches","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-    {"inputs":[],"name":"totalRecalls","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},
-    {"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},
-    {"stateMutability":"payable","type":"receive"}
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "a", "type": "address"}
+      ],
+      "name": "addAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"},
+        {"internalType": "int256",  "name": "temperature", "type": "int256"},
+        {"internalType": "string",  "name": "location", "type": "string"}
+      ],
+      "name": "logTemperature",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"},
+        {"internalType": "string",  "name": "location", "type": "string"}
+      ],
+      "name": "markDelivered",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"},
+        {"internalType": "string",  "name": "reason",  "type": "string"}
+      ],
+      "name": "recallBatch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string",                    "name": "name",          "type": "string"},
+        {"internalType": "string",                    "name": "licenseNumber", "type": "string"},
+        {"internalType": "uint8",                     "name": "role",          "type": "uint8"}
+      ],
+      "name": "registerActor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {"internalType": "string",  "name": "name",        "type": "string"},
+            {"internalType": "string",  "name": "batchNumber", "type": "string"},
+            {"internalType": "string",  "name": "manufacturer","type": "string"},
+            {"internalType": "string",  "name": "composition", "type": "string"},
+            {"internalType": "uint256", "name": "mfgDate",     "type": "uint256"},
+            {"internalType": "uint256", "name": "expDate",     "type": "uint256"},
+            {"internalType": "uint256", "name": "quantity",    "type": "uint256"},
+            {"internalType": "int256",  "name": "minTemp",     "type": "int256"},
+            {"internalType": "int256",  "name": "maxTemp",     "type": "int256"},
+            {"internalType": "string",  "name": "ipfsHash",    "type": "string"}
+          ],
+          "internalType": "struct MediChain.BatchInput",
+          "name": "inp",
+          "type": "tuple"
+        }
+      ],
+      "name": "registerBatch",
+      "outputs": [
+        {"internalType": "uint256", "name": "id", "type": "uint256"}
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "a", "type": "address"}
+      ],
+      "name": "removeAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId",    "type": "uint256"},
+        {"internalType": "address", "name": "toAddress",  "type": "address"},
+        {"internalType": "string",  "name": "location",   "type": "string"},
+        {"internalType": "string",  "name": "notes",      "type": "string"},
+        {"internalType": "int256",  "name": "currentTemp","type": "int256"}
+      ],
+      "name": "transferBatch",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "wallet",   "type": "address"},
+        {"internalType": "bool",    "name": "verified", "type": "bool"}
+      ],
+      "name": "verifyActor",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "wallet", "type": "address"}
+      ],
+      "name": "getActor",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "address", "name": "wallet",        "type": "address"},
+            {"internalType": "string",  "name": "name",          "type": "string"},
+            {"internalType": "string",  "name": "licenseNumber", "type": "string"},
+            {"internalType": "uint8",   "name": "role",          "type": "uint8"},
+            {"internalType": "bool",    "name": "isVerified",    "type": "bool"},
+            {"internalType": "bool",    "name": "exists",        "type": "bool"}
+          ],
+          "internalType": "struct MediChain.ActorInfo",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAnalytics",
+      "outputs": [
+        {"internalType": "uint256", "name": "batches",   "type": "uint256"},
+        {"internalType": "uint256", "name": "transfers", "type": "uint256"},
+        {"internalType": "uint256", "name": "recalls",   "type": "uint256"},
+        {"internalType": "uint256", "name": "breaches",  "type": "uint256"},
+        {"internalType": "uint256", "name": "actors",    "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "id", "type": "uint256"}
+      ],
+      "name": "getBatch",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "uint256", "name": "id",           "type": "uint256"},
+            {"internalType": "string",  "name": "name",         "type": "string"},
+            {"internalType": "string",  "name": "batchNumber",  "type": "string"},
+            {"internalType": "string",  "name": "manufacturer", "type": "string"},
+            {"internalType": "string",  "name": "composition",  "type": "string"},
+            {"internalType": "uint256", "name": "mfgDate",      "type": "uint256"},
+            {"internalType": "uint256", "name": "expDate",      "type": "uint256"},
+            {"internalType": "uint256", "name": "quantity",     "type": "uint256"},
+            {"internalType": "int256",  "name": "minTemp",      "type": "int256"},
+            {"internalType": "int256",  "name": "maxTemp",      "type": "int256"},
+            {"internalType": "string",  "name": "ipfsHash",     "type": "string"},
+            {"internalType": "address", "name": "registeredBy", "type": "address"},
+            {"internalType": "uint8",   "name": "status",       "type": "uint8"},
+            {"internalType": "uint256", "name": "registeredAt", "type": "uint256"},
+            {"internalType": "bool",    "name": "exists",       "type": "bool"}
+          ],
+          "internalType": "struct MediChain.MedicineBatch",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "batchNumber", "type": "string"}
+      ],
+      "name": "getBatchByNumber",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "uint256", "name": "id",           "type": "uint256"},
+            {"internalType": "string",  "name": "name",         "type": "string"},
+            {"internalType": "string",  "name": "batchNumber",  "type": "string"},
+            {"internalType": "string",  "name": "manufacturer", "type": "string"},
+            {"internalType": "string",  "name": "composition",  "type": "string"},
+            {"internalType": "uint256", "name": "mfgDate",      "type": "uint256"},
+            {"internalType": "uint256", "name": "expDate",      "type": "uint256"},
+            {"internalType": "uint256", "name": "quantity",     "type": "uint256"},
+            {"internalType": "int256",  "name": "minTemp",      "type": "int256"},
+            {"internalType": "int256",  "name": "maxTemp",      "type": "int256"},
+            {"internalType": "string",  "name": "ipfsHash",     "type": "string"},
+            {"internalType": "address", "name": "registeredBy", "type": "address"},
+            {"internalType": "uint8",   "name": "status",       "type": "uint8"},
+            {"internalType": "uint256", "name": "registeredAt", "type": "uint256"},
+            {"internalType": "bool",    "name": "exists",       "type": "bool"}
+          ],
+          "internalType": "struct MediChain.MedicineBatch",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBatchCount",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "string", "name": "batchNumber", "type": "string"}
+      ],
+      "name": "getBatchIdByNumber",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"}
+      ],
+      "name": "getRecallInfo",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "uint256", "name": "batchId",     "type": "uint256"},
+            {"internalType": "string",  "name": "reason",      "type": "string"},
+            {"internalType": "address", "name": "initiatedBy", "type": "address"},
+            {"internalType": "uint256", "name": "timestamp",   "type": "uint256"}
+          ],
+          "internalType": "struct MediChain.RecallInfo",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"}
+      ],
+      "name": "getTempLogs",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "uint256", "name": "batchId",     "type": "uint256"},
+            {"internalType": "int256",  "name": "temperature", "type": "int256"},
+            {"internalType": "string",  "name": "location",    "type": "string"},
+            {"internalType": "address", "name": "loggedBy",    "type": "address"},
+            {"internalType": "uint256", "name": "timestamp",   "type": "uint256"},
+            {"internalType": "uint8",   "name": "status",      "type": "uint8"}
+          ],
+          "internalType": "struct MediChain.TempLog[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "uint256", "name": "batchId", "type": "uint256"}
+      ],
+      "name": "getTransferHistory",
+      "outputs": [
+        {
+          "components": [
+            {"internalType": "uint256", "name": "batchId",        "type": "uint256"},
+            {"internalType": "address", "name": "from",           "type": "address"},
+            {"internalType": "address", "name": "to",             "type": "address"},
+            {"internalType": "uint8",   "name": "toRole",         "type": "uint8"},
+            {"internalType": "string",  "name": "location",       "type": "string"},
+            {"internalType": "string",  "name": "notes",          "type": "string"},
+            {"internalType": "uint256", "name": "timestamp",      "type": "uint256"},
+            {"internalType": "int256",  "name": "tempAtTransfer", "type": "int256"}
+          ],
+          "internalType": "struct MediChain.TransferEvent[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "wallet", "type": "address"}
+      ],
+      "name": "isActorVerified",
+      "outputs": [
+        {"internalType": "bool", "name": "", "type": "bool"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {"internalType": "address", "name": "a", "type": "address"}
+      ],
+      "name": "isAdmin",
+      "outputs": [
+        {"internalType": "bool", "name": "", "type": "bool"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {"internalType": "address", "name": "", "type": "address"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalBatches",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalRecalls",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalActors",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalTransfers",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalTempBreaches",
+      "outputs": [
+        {"internalType": "uint256", "name": "", "type": "uint256"}
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
   ];
 }
